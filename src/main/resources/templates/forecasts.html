@@ -16,7 +16,6 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Id</th>
                             <th>Day of week</th>
                             <th>Min. Temperature</th>
                             <th>Max. Temperature</th>
@@ -26,11 +25,13 @@
                     </thead>
                     <tbody>
                         <tr th:each="forecast : ${forecasts}">
-                            <td th:text="${forecast.id}"></td>
                             <td th:text="${forecast.dayOfWeek}"></td>
                             <td th:text="${forecast.minTemperature}"></td>
                             <td th:text="${forecast.maxTemperature}"></td>
                             <td th:text="${forecast.moisture}"></td>
+                            <td th:text="${forecast.latitude}"></td>
+                            <td th:text="${forecast.longitude}"></td>
+                            <td th:text="${forecast.time}"></td>
                             <td th:text="${forecast.description}"></td>
                         </tr>
                     </tbody>
@@ -38,11 +39,14 @@
             </div>
             <form class="form-inline" method="POST" th:object="${forecast}"th:action="@{/wheather-forecast}" style="margin:10px">
                 <div class="form-group">
-                    <input type="week" class="form-control" placeholder="Day of Week" th:field="*{dayOfWeek}"/>
-                    <input type="number" class="form-control" placeholder="Min. Temperature" th:field="*{minTemperature}"/>
-                    <input type="number" class="form-control" placeholder="Min. Temperature" th:field="*{maxTemperature}"/>
-                    <input type="number" class="form-control" placeholder="Moisture" th:field="*{moisture}"/>
-                    <input type="text" class="form-control" placeholder="Description" th:field="*{description}"/>
+                    <input required type="week" class="form-control" placeholder="Day of Week" th:field="*{dayOfWeek}"/>
+                    <input required type="number" class="form-control" placeholder="Min. Temperature" th:field="*{minTemperature}"/>
+                    <input required type="number" class="form-control" placeholder="Min. Temperature" th:field="*{maxTemperature}"/>
+                    <input required type="number" class="form-control" placeholder="Moisture" th:field="*{moisture}"/>
+                    <input required type="number" class="form-control" placeholder="Latitude" th:field="*{latitude}"/>
+                    <input required type="number" class="form-control" placeholder="Longitude" th:field="*{longitude}"/>
+                    <input required type="time" class="form-control" placeholder="Time" th:field="*{time}"/>
+                    <input required type="text" class="form-control" placeholder="Description" th:field="*{description}"/>
                     <button type="submit" class="btn btn-primary">Create</button>
                 </div>
             </form>

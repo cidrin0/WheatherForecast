@@ -1,6 +1,7 @@
 package br.usjt.wheatherForecast.model.entity;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.DayOfWeek;
+import java.time.LocalTime;
 
 @Data
 @Entity
@@ -43,6 +45,20 @@ public class WheatherForecast implements Serializable {
     @Min(Long.MIN_VALUE)
     @Max(Long.MAX_VALUE)
     private Double moisture;
+
+    @NotNull
+    @Min(Long.MIN_VALUE)
+    @Max(Long.MAX_VALUE)
+    private Long latitude;
+
+    @NotNull
+    @Min(Long.MIN_VALUE)
+    @Max(Long.MAX_VALUE)
+    private Long longitude;
+
+    @NotNull
+    @Column(name = "time")
+    private LocalTime time;
 
     @NotBlank
     private String description;
