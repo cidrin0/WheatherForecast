@@ -20,12 +20,15 @@
                             <th>Min. Temperature</th>
                             <th>Max. Temperature</th>
                             <th>Moisture</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                            <th>Time</th>
                             <th>Description</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="forecast : ${forecasts}">
-                            <td th:text="${forecast.dayOfWeek}"></td>
+                            <td th:text="${forecast.myDayOfWeek}"></td>
                             <td th:text="${forecast.minTemperature}"></td>
                             <td th:text="${forecast.maxTemperature}"></td>
                             <td th:text="${forecast.moisture}"></td>
@@ -39,7 +42,7 @@
             </div>
             <form class="form-inline" method="POST" th:object="${forecast}"th:action="@{/wheather-forecast}" style="margin:10px">
                 <div class="form-group">
-                    <input required type="week" class="form-control" placeholder="Day of Week" th:field="*{dayOfWeek}"/>
+                    <input required type="week" class="form-control" placeholder="Day of Week" th:field="*{myDayOfWeek}"/>
                     <input required type="number" class="form-control" placeholder="Min. Temperature" th:field="*{minTemperature}"/>
                     <input required type="number" class="form-control" placeholder="Min. Temperature" th:field="*{maxTemperature}"/>
                     <input required type="number" class="form-control" placeholder="Moisture" th:field="*{moisture}"/>

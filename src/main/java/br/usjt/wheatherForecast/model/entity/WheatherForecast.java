@@ -1,13 +1,14 @@
 package br.usjt.wheatherForecast.model.entity;
 
 import lombok.Data;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -27,7 +28,9 @@ public class WheatherForecast implements Serializable {
     private Long id;
 
     @NotNull
-    private DayOfWeek dayOfWeek;
+    @OneToOne
+    @JoinColumn(name = "id_my_day_of_week")
+    private MyDayOfWeek myDayOfWeek = new MyDayOfWeek();
 
     @Column(name = "min_temperature")
     @NotNull
@@ -62,4 +65,12 @@ public class WheatherForecast implements Serializable {
 
     @NotBlank
     private String description;
+
+    public void setMyDayOfWeek(DayOfWeek myDayOfWeek) {
+        this.myDayOfWeek = new MyDayOfWeek(myDayOfWeek);
+    }
+
+    public DayOfWeek getMyDayOfWeek() {
+        return myDayOfWeek.getId();
+    }
 }
