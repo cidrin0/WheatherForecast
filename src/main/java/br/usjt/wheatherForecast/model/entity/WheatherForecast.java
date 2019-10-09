@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
@@ -65,6 +66,10 @@ public class WheatherForecast implements Serializable {
 
     @NotBlank
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
 
     public void setMyDayOfWeek(DayOfWeek myDayOfWeek) {
         this.myDayOfWeek = new MyDayOfWeek(myDayOfWeek);

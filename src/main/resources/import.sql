@@ -8,7 +8,9 @@ insert into my_day_of_week (id, description) values (5, 'FRIDAY');
 insert into my_day_of_week (id, description) values (6, 'SATURDAY');
 insert into my_day_of_week (id, description) values (7, 'SUNDAY');
 
-insert into wheather_forecast(id, id_my_day_of_week, min_temperature, max_temperature, moisture, latitude, longitude, time, description) values (1, 1, 10.2, 15.6, 5.32, 10, 15, '12:50:35', 'This a cold day');
+insert into cities (id, name, latitude, longitude) values (1, 'São Paulo', -23, -46);
 
-insert into wheather_forecast (id, id_my_day_of_week, min_temperature, max_temperature, moisture, latitude, longitude, time, description) values (2, 2, 10.6, 15.1, 5.37, 10, 15, '16:30:20', 'This almost the same day');
+insert into wheather_forecast (id, id_my_day_of_week, city_id, min_temperature, max_temperature, moisture, latitude, longitude, time, description) values (1, 1, 1, 10.2, 15.6, 5.32, 10, 15, '12:50:35', 'This a cold day');
+
+insert into wheather_forecast (id, id_my_day_of_week, city_id, min_temperature, max_temperature, moisture, latitude, longitude, time, description) values (2, 2, 1, 10.6, 15.1, 5.37, 10, 15, '16:30:20', 'This almost the same day');
 
