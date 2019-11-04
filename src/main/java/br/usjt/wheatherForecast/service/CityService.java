@@ -17,7 +17,15 @@ public class CityService {
         return repository.findAll();
     }
 
-    public void save(City wheatherForecast) {
-        repository.save(wheatherForecast);
+    public City save(City wheatherForecast) {
+        return repository.save(wheatherForecast);
+    }
+
+    public Collection<City> findAllByNameStartWith(String name) {
+        return repository.findAllByNameStartWith(name);
+    }
+
+    public City findByLatitudeAndLongitude(Long latitude, Long longitude) {
+        return repository.findByLatitudeAndLongitude(latitude, longitude);
     }
 }
